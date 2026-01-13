@@ -85,3 +85,67 @@ Before working on specific areas, consult the relevant standards documents:
 3. Create task file in appropriate queue (`backlog/`, `active/`, or `review/`)
 4. Follow the task file format with clear acceptance criteria
 5. Update shared context files when blocking issues arise
+
+## Git Workflow with Submodules
+
+This repository uses **git submodules** for papers. Each paper is an independent git repository linked as a submodule.
+
+### Repository Structure
+- **Main repo** (ai-lab): Lab infrastructure, standards, agents, execution
+- **Paper repos** (e.g., neural-race-multiview): Independent repos in `papers/` directory
+
+### Working on Lab Infrastructure
+
+When modifying files in the main repo (standards, agents, execution, shared_stack):
+
+```bash
+# Make changes to infrastructure files
+git add <files>
+git commit -m "Description of changes"
+git push
+```
+
+### Working on a Paper
+
+When modifying files inside `papers/<paper_name>/`:
+
+```bash
+# Navigate to paper directory
+cd papers/<paper_name>
+
+# Make changes to paper files
+git add .
+git commit -m "Description of changes"
+git push
+
+# IMPORTANT: Update main repo to track new paper version
+cd ../..
+git add papers/<paper_name>
+git commit -m "Update <paper_name> submodule"
+git push
+```
+
+### Why Two Commits?
+
+Papers are separate git repositories. Changes to paper code require:
+1. **Paper commit**: Saves changes in the paper repo
+2. **Main repo commit**: Updates the submodule pointer in main repo
+
+This gives each paper independent version control while maintaining a unified workflow.
+
+### Pulling Latest Changes
+
+```bash
+# Pull main repo changes
+git pull
+
+# Pull latest paper changes
+git submodule update --remote --merge
+```
+
+### Important Notes
+
+- **Always commit in the paper repo first**, then update the submodule pointer in main repo
+- **Paper repos have independent history** — their git log is separate from main repo
+- **Submodule pointer** in main repo just tracks which commit SHA the paper is at
+- See `papers/README.md` for detailed submodule workflow documentation
