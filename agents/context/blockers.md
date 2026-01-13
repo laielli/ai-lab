@@ -37,7 +37,13 @@ Known issues preventing progress.
   - Different singular value modes grow at different rates matching input-output correlations
   - Example: Target SVs [13.60, 6.40, 3.00, 3.00] → Growth ratios [8.68, 6.78, 5.34, 5.31]
   - This explains why standard MLPs don't show WTA: they lack explicit pathway separation
-- **Status**: PARTIALLY RESOLVED - new understanding of theory requirements
+- **KD + GatedDLN Experiment (2026-01-13)**:
+  - Tested Theorem 3 with GatedDLN on structured regression
+  - **FINDING: KD does NOT break race dynamics**
+  - Hard labels dominance: 0.505, KD dominance: 0.502 (essentially identical)
+  - Both methods converge to same relative pathway proportions
+  - Race is determined by data correlations, not training method
+- **Status**: REQUIRES THEORY REVISION - race dynamics confirmed but KD doesn't preserve diversity
 - **Options** (Updated with new understanding):
   1. **Use GatedDLN architecture** — Theory validated with proper architecture; race happens in SVD space
   2. **Reframe paper scope** — Theory applies to architectures with explicit pathway separation, not standard MLPs
