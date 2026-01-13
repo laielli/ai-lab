@@ -6,6 +6,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is an AI Lab framework designed for agent-driven research where the goal is publishing papers at top-tier AI conferences (e.g., NeurIPS). The framework treats "Papers" as equivalent to "Products" and uses Paper Requirements Documents (PRDs) instead of traditional product requirements.
 
+## Research Direction
+
+For lab research focus, scope, and taste, see `lab_vision.md`. All agents should consult this document when making decisions about research direction, evaluating paper proposals, or prioritizing work.
+
 ## Directory Structure Philosophy
 
 The repository follows these design principles:
