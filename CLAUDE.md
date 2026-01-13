@@ -10,6 +10,10 @@ This is an AI Lab framework designed for agent-driven research where the goal is
 
 For lab research focus, scope, and taste, see `lab_vision.md`. All agents should consult this document when making decisions about research direction, evaluating paper proposals, or prioritizing work.
 
+## Reading Stack
+
+For paper reading queue, summaries, and idea pipeline, see `reading_stack/README.md`. Papers flow through: inbox → summaries → ideas (nascent → developing → ready) → paper PRD.
+
 ## Directory Structure Philosophy
 
 The repository follows these design principles:
@@ -26,6 +30,7 @@ The repository follows these design principles:
 ai-lab/
 ├── standards/          # Constraints all agents follow (engineering, ml, paper, writing, search, decisions)
 ├── shared_stack/       # Common technical assets (ml models, training, datasets)
+├── reading_stack/      # Paper reading queue, summaries, and idea pipeline
 ├── papers/             # Paper-specific work (one subdirectory per paper)
 ├── execution/          # Operations (roadmap, submissions, metrics)
 └── agents/             # Agent orchestration (charters, tasks, context)
