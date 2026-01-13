@@ -1,3 +1,3 @@
 [submodule "papers/neural-race-multiview"]
 	path = papers/neural-race-multiview
-	url = /tmp/neural-race-multiview-repo
+	url = https://github.com/laielli/neural-race-multiview.git
