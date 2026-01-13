@@ -60,6 +60,12 @@ Brief note on why this paper is relevant to lab vision.
 - [ ] Feature Learning
 - [ ] Knowledge Distillation
 - [ ] Theory-Inspired Applications
+
+## Notes
+Notes from a first-pass reading.
+
+## Questions
+A list of questions about the paper to answer in the summary.
 ```
 
 ---
@@ -91,6 +97,9 @@ Filename: `PAPER-XXX-[first-author]-[year].md`
 
 ## Key Results
 - ...
+
+## Answers to First-pass Questions
+[Answers for any first-pass questions listed in the Paper Entry file]
 
 ## Relevance to Lab Vision
 [How this connects to our research direction]
@@ -240,3 +249,15 @@ When tagging papers and ideas, use these focus areas:
 - Ideas: `IDEA-001`, `IDEA-002`, etc.
 
 IDs are assigned sequentially across all stages. An idea keeps its ID as it moves through the pipeline.
+
+---
+
+## Integration with Code Stack
+
+When a paper has an associated code repository:
+
+1. **Add to code_stack**: Create entry in `code_stack/inbox/REPO-XXX.md`
+2. **Cross-reference**: Link PAPER-XXX ↔ REPO-XXX in both summaries
+3. **Implementation notes**: Reference code_stack summary in paper's "Potential Connections" section
+
+This creates a bidirectional link between theoretical understanding (paper) and practical implementation (code). See `code_stack/README.md` for the code review workflow.

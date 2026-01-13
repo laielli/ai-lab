@@ -14,6 +14,10 @@ For lab research focus, scope, and taste, see `lab_vision.md`. All agents should
 
 For paper reading queue, summaries, and idea pipeline, see `reading_stack/README.md`. Papers flow through: inbox → summaries → ideas (nascent → developing → ready) → paper PRD.
 
+## Code Stack
+
+For code repository review queue and implementation analysis, see `code_stack/README.md`. Repos flow through: inbox → summaries (with quality assessment and key implementation details). Cross-references with reading_stack when repos correspond to papers.
+
 ## Directory Structure Philosophy
 
 The repository follows these design principles:
@@ -31,6 +35,7 @@ ai-lab/
 ├── standards/          # Constraints all agents follow (engineering, ml, paper, writing, search, decisions)
 ├── shared_stack/       # Common technical assets (ml models, training, datasets)
 ├── reading_stack/      # Paper reading queue, summaries, and idea pipeline
+├── code_stack/         # Code repo review queue and implementation analysis
 ├── papers/             # Paper-specific work (one subdirectory per paper)
 ├── execution/          # Operations (roadmap, submissions, metrics)
 └── agents/             # Agent orchestration (charters, tasks, context)
