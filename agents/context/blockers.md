@@ -29,15 +29,25 @@ Known issues preventing progress.
   1. Competition requires **explicit loss term** — doesn't emerge from architecture/capacity
   2. KD does NOT break competition — contradicts Theorem 3 prediction
   3. KD performs WORSE under competition — soft labels weaker than hard labels
-- **Status**: REQUIRES PAPER DIRECTION DECISION
-- **Options**:
-  1. **Revise theory** — Competition is designed, not emergent; modify Theorem 3
-  2. **Find emergent competition** — Different architectures (transformers, attention)
-  3. **Reframe contribution** — Controlled study of competition mechanisms
+- **BREAKTHROUGH (2026-01-13 - GatedDLN Analysis)**:
+  - Analyzed Facebook Research's gated-dln implementation
+  - **Key insight**: Saxe theory's "race" is about **singular value competition in SVD space**, NOT view competition
+  - GatedDLN architecture has explicit pathway separation (M encoders, M decoders, binary gate)
+  - Implemented GatedDLN for our setup and confirmed: **race dynamics ARE happening in SVD space**
+  - Different singular value modes grow at different rates matching input-output correlations
+  - Example: Target SVs [13.60, 6.40, 3.00, 3.00] → Growth ratios [8.68, 6.78, 5.34, 5.31]
+  - This explains why standard MLPs don't show WTA: they lack explicit pathway separation
+- **Status**: PARTIALLY RESOLVED - new understanding of theory requirements
+- **Options** (Updated with new understanding):
+  1. **Use GatedDLN architecture** — Theory validated with proper architecture; race happens in SVD space
+  2. **Reframe paper scope** — Theory applies to architectures with explicit pathway separation, not standard MLPs
+  3. **Bridge theory-practice gap** — Document when/how Saxe theory applies to different architectures
 - **Related Files**:
   - `papers/neural-race-multiview/log/experiment_log.md` (Full findings with conclusions)
-  - `papers/neural-race-multiview/src/train.py` (train_with_competition function)
-  - `papers/neural-race-multiview/src/model.py` (DeepLinearNet)
+  - `papers/neural-race-multiview/src/train.py` (train_with_competition, train_gated_dln functions)
+  - `papers/neural-race-multiview/src/model.py` (DeepLinearNet, GatedDLN, GatedMultiViewNet)
+  - `papers/neural-race-multiview/src/experiments/exp_gated_dln.py` (GatedDLN experiments)
+  - `code_stack/summaries/REPO-001-gated-dln.md` (Analysis of Facebook Research implementation)
 - **Related Task**: TASK-001-neural-race-multiview-resolve-theory-mismatch
 
 ## Resolved Blockers
