@@ -22,13 +22,8 @@ Thumbs.db
 # Logs
 *.log
 
-# Paper artifacts (tracked in submodules)
-papers/*/log/results/*.json
-papers/*/log/results/*.png
-papers/*/paper/*.aux
-papers/*/paper/*.log
-papers/*/paper/*.out
-papers/*/paper/*.synctex.gz
+# Paper submodules (tracked independently)
+papers/
 
 # Temporary files
 .claude/
