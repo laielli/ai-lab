@@ -22,8 +22,9 @@ Thumbs.db
 # Logs
 *.log
 
-# Paper submodules (tracked independently)
+# Papers (independent repos, not tracked)
 papers/
+!papers/README.md
 
 # Temporary files
 .claude/

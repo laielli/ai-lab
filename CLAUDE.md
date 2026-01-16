@@ -100,20 +100,19 @@ Before working on specific areas, consult the relevant standards documents:
 4. Follow the task file format with clear acceptance criteria
 5. Update shared context files when blocking issues arise
 
-## Git Workflow with Submodules
-
-This repository uses **git submodules** for papers. Each paper is an independent git repository linked as a submodule.
+## Git Workflow
 
 ### Repository Structure
 - **Main repo** (ai-lab): Lab infrastructure, standards, agents, execution
-- **Paper repos** (e.g., neural-race-multiview): Independent repos in `papers/` directory
+- **Paper repos**: Independent git repositories in `papers/` directory (not tracked by main repo)
+
+The `papers/` directory is in `.gitignore`. Each paper is its own git repository, fully independent from the main repo.
 
 ### Working on Lab Infrastructure
 
 When modifying files in the main repo (standards, agents, execution, shared_stack):
 
 ```bash
-# Make changes to infrastructure files
 git add <files>
 git commit -m "Description of changes"
 git push
@@ -121,45 +120,25 @@ git push
 
 ### Working on a Paper
 
-When modifying files inside `papers/<paper_name>/`:
+Papers have their own git repositories. Work directly in the paper directory:
 
 ```bash
-# Navigate to paper directory
 cd papers/<paper_name>
-
-# Make changes to paper files
 git add .
 git commit -m "Description of changes"
 git push
-
-# IMPORTANT: Update main repo to track new paper version
-cd ../..
-git add papers/<paper_name>
-git commit -m "Update <paper_name> submodule"
-git push
 ```
 
-### Why Two Commits?
+No changes to the main repo are needed — papers are fully independent.
 
-Papers are separate git repositories. Changes to paper code require:
-1. **Paper commit**: Saves changes in the paper repo
-2. **Main repo commit**: Updates the submodule pointer in main repo
+### Adding a New Paper
 
-This gives each paper independent version control while maintaining a unified workflow.
-
-### Pulling Latest Changes
+To add a new paper, create or clone a git repository in the `papers/` directory:
 
 ```bash
-# Pull main repo changes
-git pull
-
-# Pull latest paper changes
-git submodule update --remote --merge
+cd papers
+git clone <paper-repo-url>
+# or: mkdir <paper_name> && cd <paper_name> && git init
 ```
 
-### Important Notes
-
-- **Always commit in the paper repo first**, then update the submodule pointer in main repo
-- **Paper repos have independent history** — their git log is separate from main repo
-- **Submodule pointer** in main repo just tracks which commit SHA the paper is at
-- See `papers/README.md` for detailed submodule workflow documentation
+The main repo will not track it (papers/ is gitignored).
