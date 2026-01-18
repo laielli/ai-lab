@@ -26,5 +26,9 @@ Thumbs.db
 papers/
 !papers/README.md
 
+# Cloned repos in code_stack (only track .md files)
+code_stack/inbox/*/
+!code_stack/inbox/*.md
+
 # Temporary files
 .claude/
